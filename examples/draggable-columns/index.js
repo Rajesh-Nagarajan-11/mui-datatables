@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import MUIDataTable from "../../src/";
 import InputLabel from '@mui/material/InputLabel';
@@ -8,8 +8,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
 
 function Example() {
 
@@ -20,16 +18,16 @@ function Example() {
   const [selectableRows, setSelectableRows] = useState('none');
 
   const [treeData, setTreeData] = useState([
-        { title: 'Chicken', children: [{ title: 'Egg' }] },
-        { title: 'Fish', children: [{ title: 'fingerline'}] }
-      ]);
+    { title: 'Chicken', children: [{ title: 'Egg' }] },
+    { title: 'Fish', children: [{ title: 'fingerline' }] }
+  ]);
 
   const columns = [{
     name: 'hidden',
     options: {
       display: 'excluded'
     }
-  },"Name", "Title", "Location", {
+  }, "Name", "Title", "Location", {
     name: 'No Drag',
     options: {
       draggable: false,
@@ -50,18 +48,18 @@ function Example() {
   };
 
   const data = [
-    ["1","Gabby George", "Business Analyst", "Minneapolis","1","555-1234"],
-    ["1","Aiden Lloyd", "Business Consultant for an International Company and CEO of Tony's Burger Palace", "Dallas","2","555-1234"],
-    ["1","Jaden Collins", "Attorney", "Santa Ana","1","555-5555"],
-    ["1","Franky Rees", "Business Analyst", "St. Petersburg","1","555-3333"],
-    ["1","Aaren Rose", null, "Toledo","1","555-4444"],
-    ["1","Johnny Jones", "Business Analyst", "St. Petersburg","3","555-2468"],
-    ["1","Jimmy Johns", "Business Analyst", "Baltimore","1","555-1357"],
-    ["1","Jack Jackson", "Business Analyst", "El Paso","1","555-4321"],
-    ["1","Joe Jones", "Computer Programmer", "El Paso","1","555-4321"],
-    ["1","Jacky Jackson", "Business Consultant", "Baltimore","4","555-1234"],
-    ["1","Jo Jo", "Software Developer", "Washington DC","4","555-1122"],
-    ["1","Donna Marie", "Business Manager", "Annapolis","5","555-5555"],
+    ["1", "Gabby George", "Business Analyst", "Minneapolis", "1", "555-1234"],
+    ["1", "Aiden Lloyd", "Business Consultant for an International Company and CEO of Tony's Burger Palace", "Dallas", "2", "555-1234"],
+    ["1", "Jaden Collins", "Attorney", "Santa Ana", "1", "555-5555"],
+    ["1", "Franky Rees", "Business Analyst", "St. Petersburg", "1", "555-3333"],
+    ["1", "Aaren Rose", null, "Toledo", "1", "555-4444"],
+    ["1", "Johnny Jones", "Business Analyst", "St. Petersburg", "3", "555-2468"],
+    ["1", "Jimmy Johns", "Business Analyst", "Baltimore", "1", "555-1357"],
+    ["1", "Jack Jackson", "Business Analyst", "El Paso", "1", "555-4321"],
+    ["1", "Joe Jones", "Computer Programmer", "El Paso", "1", "555-4321"],
+    ["1", "Jacky Jackson", "Business Consultant", "Baltimore", "4", "555-1234"],
+    ["1", "Jo Jo", "Software Developer", "Washington DC", "4", "555-1122"],
+    ["1", "Donna Marie", "Business Manager", "Annapolis", "5", "555-5555"],
 
   ];
 
@@ -73,7 +71,7 @@ function Example() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={responsive}
-          style={{width:'200px', marginBottom:'10px', marginRight:10}}
+          style={{ width: '200px', marginBottom: '10px', marginRight: 10 }}
           onChange={(e) => setResponsive(e.target.value)}
         >
           <MenuItem value={"vertical"}>vertical</MenuItem>
@@ -91,7 +89,7 @@ function Example() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={tableBodyHeight}
-          style={{width:'200px', marginBottom:'10px', marginRight:10}}
+          style={{ width: '200px', marginBottom: '10px', marginRight: 10 }}
           onChange={(e) => setTableBodyHeight(e.target.value)}
         >
           <MenuItem value={""}>[blank]</MenuItem>
@@ -106,7 +104,7 @@ function Example() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={tableBodyMaxHeight}
-          style={{width:'200px', marginBottom:'10px',marginRight:10}}
+          style={{ width: '200px', marginBottom: '10px', marginRight: 10 }}
           onChange={(e) => setTableBodyMaxHeight(e.target.value)}
         >
           <MenuItem value={""}>[blank]</MenuItem>
@@ -121,7 +119,7 @@ function Example() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={selectableRows}
-          style={{width:'200px', marginBottom:'10px',marginRight:10}}
+          style={{ width: '200px', marginBottom: '10px', marginRight: 10 }}
           onChange={(e) => setSelectableRows(e.target.value)}
         >
           <MenuItem value={"none"}>none</MenuItem>

@@ -1,16 +1,13 @@
-import Button from '@mui/material/Button';
+import { Button, TableCell, TableSortLabel, Tooltip as MuiTooltip } from '@mui/material';
+import { Help as HelpIcon } from '@mui/icons-material';
 import clsx from 'clsx';
-import HelpIcon from '@mui/icons-material/Help';
-import MuiTooltip from '@mui/material/Tooltip';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import TableCell from '@mui/material/TableCell';
-import TableSortLabel from '@mui/material/TableSortLabel';
 import useColumnDrop from '../hooks/useColumnDrop.js';
 import { makeStyles } from 'tss-react/mui';
 import { useDrag } from 'react-dnd';
 
-const useStyles = makeStyles({ name: 'MUIDataTableHeadCell' })(theme => ({
+const useStyles = makeStyles({ name: 'MUIDataTableHeadCell' })((theme) => ({
   root: {},
   fixedHeader: {
     position: 'sticky',
@@ -91,7 +88,7 @@ const TableHeadCell = ({
 
   const { classes } = useStyles();
 
-  const handleKeyboardSortInput = e => {
+  const handleKeyboardSortInput = (e) => {
     if (e.key === 'Enter') {
       toggleSort(index);
     }
@@ -124,23 +121,22 @@ const TableHeadCell = ({
   };
 
   const [{ opacity }, dragRef, preview] = useDrag({
-    item: {
-      type: 'HEADER',
-      colIndex: index,
-      headCellRefs: draggableHeadCellRefs,
-    },
-    begin: monitor => {
+    type: 'HEADER',
+    item: () => {
       setTimeout(() => {
         setHintTooltipOpen(false);
         setSortTooltipOpen(false);
         setDragging(true);
       }, 0);
-      return null;
+      return {
+        colIndex: index,
+        headCellRefs: draggableHeadCellRefs,
+      };
     },
     end: (item, monitor) => {
       setDragging(false);
     },
-    collect: monitor => {
+    collect: (monitor) => {
       return {
         opacity: monitor.isDragging() ? 1 : 0,
       };
@@ -190,7 +186,7 @@ const TableHeadCell = ({
 
   return (
     <TableCell
-      ref={ref => {
+      ref={(ref) => {
         drop && drop(ref);
         setCellRef && setCellRef(index + 1, colPosition + 1, ref);
       }}

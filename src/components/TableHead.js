@@ -1,12 +1,12 @@
 import { makeStyles } from 'tss-react/mui';
 import clsx from 'clsx';
-import MuiTableHead from '@mui/material/TableHead';
+import { TableHead as MuiTableHead } from '@mui/material';
 import React, { useState } from 'react';
 import TableHeadCell from './TableHeadCell';
 import TableHeadRow from './TableHeadRow';
 import TableSelectCell from './TableSelectCell';
 
-const useStyles = makeStyles({ name: 'MUIDataTableHead' })(theme => ({
+const useStyles = makeStyles({ name: 'MUIDataTableHead' })((theme) => ({
   main: {},
   responsiveStacked: {
     [theme.breakpoints.down('md')]: {
@@ -51,7 +51,7 @@ const TableHead = ({
 
   const [dragging, setDragging] = useState(false);
 
-  const handleToggleColumn = index => {
+  const handleToggleColumn = (index) => {
     toggleSort(index);
   };
 

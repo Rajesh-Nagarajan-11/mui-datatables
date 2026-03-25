@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import MUIDataTable from "../../src/";
 
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import Switch from '@mui/material/Switch';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { FormControl, TextField, Switch, FormGroup, FormControlLabel } from '@mui/material';
 
 function Example(props) {
 

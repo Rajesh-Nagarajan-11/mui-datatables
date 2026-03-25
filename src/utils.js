@@ -1,6 +1,9 @@
 function buildMap(rows) {
-  return rows.reduce((accum, { dataIndex }) => {
-    accum[dataIndex] = true;
+  if (!rows || !Array.isArray(rows)) return {};
+  return rows.reduce((accum, row) => {
+    if (row != null && row.dataIndex !== undefined) {
+      accum[row.dataIndex] = true;
+    }
     return accum;
   }, {});
 }
@@ -48,6 +51,7 @@ function getCollatorComparator() {
 
 function sortCompare(order) {
   return (a, b) => {
+    if (a == null || b == null) return 0;
     var aData = a.data === null || typeof a.data === 'undefined' ? '' : a.data;
     var bData = b.data === null || typeof b.data === 'undefined' ? '' : b.data;
     return (
@@ -58,10 +62,10 @@ function sortCompare(order) {
 }
 
 function buildCSV(columns, data, options) {
-  const replaceDoubleQuoteInString = columnData =>
+  const replaceDoubleQuoteInString = (columnData) =>
     typeof columnData === 'string' ? columnData.replace(/\"/g, '""') : columnData;
 
-  const buildHead = columns => {
+  const buildHead = (columns) => {
     return (
       columns
         .reduce(
@@ -80,7 +84,7 @@ function buildCSV(columns, data, options) {
   };
   const CSVHead = buildHead(columns);
 
-  const buildBody = data => {
+  const buildBody = (data) => {
     if (!data.length) return '';
     return data
       .reduce(
@@ -89,7 +93,7 @@ function buildCSV(columns, data, options) {
           '"' +
           row.data
             .filter((_, index) => columns[index].download)
-            .map(columnData => escapeDangerousCSVCharacters(replaceDoubleQuoteInString(columnData)))
+            .map((columnData) => escapeDangerousCSVCharacters(replaceDoubleQuoteInString(columnData)))
             .join('"' + options.downloadOptions.separator + '"') +
           '"\r\n',
         '',

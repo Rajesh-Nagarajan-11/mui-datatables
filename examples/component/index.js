@@ -1,8 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import FormControlLabel from '@mui/material/FormControlLabel';
-import TextField from '@mui/material/TextField';
-import Switch from '@mui/material/Switch';
+import { FormControlLabel, TextField, Switch } from '@mui/material';
 import MUIDataTable from "../../src/";
 import Cities from "./cities";
 

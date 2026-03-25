@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import clsx from 'clsx';
-import TableCell from '@mui/material/TableCell';
+import { TableCell } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles({ name: 'MUIDataTableBodyCell' })(theme => ({
+const useStyles = makeStyles({ name: 'MUIDataTableBodyCell' })((theme) => ({
   root: {},
   cellHide: {
     display: 'none',
@@ -92,22 +92,12 @@ const useStyles = makeStyles({ name: 'MUIDataTableBodyCell' })(theme => ({
 
 function TableBodyCell(props) {
   const { classes } = useStyles();
-  const {
-    children,
-    colIndex,
-    columnHeader,
-    options,
-    dataIndex,
-    rowIndex,
-    className,
-    print,
-    tableId,
-    ...otherProps
-  } = props;
+  const { children, colIndex, columnHeader, options, dataIndex, rowIndex, className, print, tableId, ...otherProps } =
+    props;
   const onCellClick = options.onCellClick;
 
   const handleClick = useCallback(
-    event => {
+    (event) => {
       onCellClick(children, { colIndex, rowIndex, dataIndex, event });
     },
     [onCellClick, children, colIndex, rowIndex, dataIndex],

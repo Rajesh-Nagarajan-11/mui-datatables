@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import MUIDataTable from '../../src/';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import { InputLabel, MenuItem, FormControl, Select } from '@mui/material';
 
 function Example() {
   const [responsive, setResponsive] = useState('vertical');

@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Checkbox from '@mui/material/Checkbox';
-import Typography from '@mui/material/Typography';
-import FormControl from '@mui/material/FormControl';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { Checkbox, Typography, FormControl, FormGroup, FormControlLabel } from '@mui/material';
 import { makeStyles } from 'tss-react/mui';
 
-const useStyles = makeStyles({ name: 'MUIDataTableViewCol' })(theme => ({
+const useStyles = makeStyles({ name: 'MUIDataTableViewCol' })((theme) => ({
   root: {
     padding: '16px 24px 16px 24px',
     fontFamily: 'Roboto',
@@ -43,7 +39,7 @@ const TableViewCol = ({ columns, options, components = {}, onColumnUpdate, updat
   const textLabels = options.textLabels.viewColumns;
   const CheckboxComponent = components.Checkbox || Checkbox;
 
-  const handleColChange = index => {
+  const handleColChange = (index) => {
     onColumnUpdate(index);
   };
 

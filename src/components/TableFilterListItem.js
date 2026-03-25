@@ -1,4 +1,4 @@
-import Chip from '@mui/material/Chip';
+import { Chip } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import clsx from 'clsx';

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
-import TableRow from '@mui/material/TableRow';
+import { TableRow } from '@mui/material';
 import { withStyles } from 'tss-react/mui';
 
-const defaultBodyRowStyles = theme => ({
+const defaultBodyRowStyles = (theme) => ({
   root: {
     // material v4
     '&.Mui-selected': {

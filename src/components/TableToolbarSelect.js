@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import DeleteIcon from '@mui/icons-material/Delete';
+import { Paper, IconButton, Typography, Tooltip as MuiTooltip } from '@mui/material';
+import { Delete as DeleteIcon } from '@mui/icons-material';
 import { withStyles } from 'tss-react/mui';
-import MuiTooltip from '@mui/material/Tooltip';
 
-const defaultToolbarSelectStyles = theme => ({
+const defaultToolbarSelectStyles = (theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
     flex: '1 1 100%',
@@ -46,12 +43,12 @@ class TableToolbarSelect extends React.Component {
   /**
    * @param {number[]} selectedRows Array of rows indexes that are selected, e.g. [0, 2] will select first and third rows in table
    */
-  handleCustomSelectedRows = selectedRows => {
+  handleCustomSelectedRows = (selectedRows) => {
     if (!Array.isArray(selectedRows)) {
       throw new TypeError(`"selectedRows" must be an "array", but it's "${typeof selectedRows}"`);
     }
 
-    if (selectedRows.some(row => typeof row !== 'number')) {
+    if (selectedRows.some((row) => typeof row !== 'number')) {
       throw new TypeError(`Array "selectedRows" must contain only numbers`);
     }
 

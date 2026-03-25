@@ -1,7 +1,6 @@
 import React from "react";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import AddIcon from "@mui/icons-material/Add";
+import { IconButton, Tooltip } from "@mui/material";
+import { Add as AddIcon } from "@mui/icons-material";
 import { withStyles } from "tss-react/mui";
 const defaultToolbarStyles = {
   iconButton: {

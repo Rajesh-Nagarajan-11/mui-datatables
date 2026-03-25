@@ -3,9 +3,7 @@ import MUIDataTable from '../../src/';
 import { ThemeProvider } from '@mui/material/styles';
 import { withStyles } from 'tss-react/mui';
 import { createTheme } from '@mui/material/styles';
-import Switch from '@mui/material/Switch';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { Switch, FormGroup, FormControlLabel } from '@mui/material';
 import clsx from 'clsx';
 
 const customStyles = theme => ({

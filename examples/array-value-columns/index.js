@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import MUIDataTable from '../../src';
-import Chip from '@mui/material/Chip';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch from '@mui/material/Switch';
+import { Chip, FormControlLabel, Switch } from '@mui/material';
 
 function Example() {
   // const allTags = ['leave-message', 'frequently-busy', 'nice', 'grumpy', 'in-person', 'preferred', 'second-choice'];

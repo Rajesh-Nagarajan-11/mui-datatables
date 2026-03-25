@@ -1,5 +1,5 @@
 import React from 'react';
-import MuiTable from '@mui/material/Table';
+import { Table as MuiTable } from '@mui/material';
 import TablePagination from './TablePagination';
 import { makeStyles } from 'tss-react/mui';
 import PropTypes from 'prop-types';

@@ -3,12 +3,7 @@ import MUIDataTable from '../../src/';
 import CustomFooter from './CustomFooter';
 import { makeStyles } from "tss-react/mui";
 
-import TableFooter from '@mui/material/TableFooter';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import Switch from '@mui/material/Switch';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import { TableFooter, TableRow, TableCell, Switch, FormGroup, FormControlLabel } from '@mui/material';
 import clsx from 'clsx';
 
 const useStyles = makeStyles()(theme => ({

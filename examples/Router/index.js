@@ -4,7 +4,7 @@ import { HashRouter as Router, Route, Switch, withRouter } from 'react-router-do
 import { withStyles } from 'tss-react/mui';
 import ExamplesGrid from './ExamplesGrid';
 import examples from '../examples';
-import Button from '@mui/material/Button';
+import { Button } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const styles = {

@@ -1,9 +1,6 @@
 import React from "react";
-import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
-import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
-import BlockIcon from "@mui/icons-material/Block";
+import { IconButton, Tooltip } from "@mui/material";
+import { CompareArrows as CompareArrowsIcon, IndeterminateCheckBox as IndeterminateCheckBoxIcon, Block as BlockIcon } from "@mui/icons-material";
 import { withStyles } from "tss-react/mui";
 
 const defaultToolbarSelectStyles = {
