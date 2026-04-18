@@ -1,4 +1,6 @@
-export { default } from './MUIDataTable';
+// [TEST] Breaking change: default export removed, renamed to MUIDataTableV2.
+// Meshery UI imports `MUIDataTable` as the default — this will cause a build failure.
+export { default as MUIDataTableV2 } from './MUIDataTable';
 export { default as Popover } from './components/Popover';
 export { default as TableBodyCell } from './components/TableBodyCell';
 export { default as TableBody } from './components/TableBody';
