@@ -1,6 +1,4 @@
-// [TEST] Breaking change: default export removed, renamed to MUIDataTableV2.
-// Meshery UI imports `MUIDataTable` as the default — this will cause a build failure.
-export { default as MUIDataTableV2 } from './MUIDataTable';
+export { default } from './MUIDataTable';
 export { default as Popover } from './components/Popover';
 export { default as TableBodyCell } from './components/TableBodyCell';
 export { default as TableBody } from './components/TableBody';
@@ -20,3 +18,11 @@ export { default as TableToolbarSelect } from './components/TableToolbarSelect';
 export { default as TableViewCol } from './components/TableViewCol';
 export { default as ExpandButton } from './components/ExpandButton';
 export { debounceSearchRender, DebounceTableSearch } from './plug-ins/DebounceSearchRender';
+
+// [TEST-ONLY] Imports a module that does not exist in Meshery UI's node_modules.
+// rollup skips resolving it (declared external in rollup.config.js) and emits
+// require('__mui-datatables-breaking-test__') in dist/index.js.
+// When Meshery UI's Next.js/webpack bundles this package it will fail:
+//   "Module not found: Can't resolve '__mui-datatables-breaking-test__'"
+// To restore: remove this line and remove the external entry in rollup.config.js.
+import '__mui-datatables-breaking-test__';

@@ -5,6 +5,10 @@ import uglify from '@lopatnov/rollup-plugin-uglify';
 
 export default {
   input: 'src/index.js',
+  // [TEST-ONLY] '__mui-datatables-breaking-test__' is declared external so rollup
+  // passes it through to dist/index.js as a require(). Meshery UI's Next.js webpack
+  // will then fail with "Module not found" when it tries to bundle this package.
+  external: ['__mui-datatables-breaking-test__'],
   plugins: [
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
