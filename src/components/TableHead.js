@@ -13,6 +13,7 @@ const useStyles = makeStyles({ name: 'MUIDataTableHead' })((theme) => ({
       display: 'none',
     },
   },
+  
   responsiveStackedAlways: {
     display: 'none',
   },
