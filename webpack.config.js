@@ -12,6 +12,9 @@ module.exports = {
     filename: 'bundle.js',
   },
   devtool: 'source-map',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+  },
   devServer: {
     static: { directory: path.resolve(__dirname) },
     allowedHosts: 'all',
@@ -22,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
       },

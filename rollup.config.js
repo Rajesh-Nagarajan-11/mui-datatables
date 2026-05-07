@@ -1,5 +1,6 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import uglify from '@lopatnov/rollup-plugin-uglify';
 import { createRequire } from 'module';
@@ -9,16 +10,13 @@ const pkg = createRequire(import.meta.url)('./package.json');
 // Treat anything declared as a dependency or peerDependency as external —
 // including subpath imports like `@babel/runtime-corejs3/helpers/extends` —
 // since they belong to the consumer's resolution graph, not our bundle.
-const externals = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
-];
+const externals = [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})];
 const externalRegex = new RegExp(
   '^(' + externals.map((d) => d.replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')).join('|') + ')(/|$)',
 );
 
 export default {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   external: (id) => externalRegex.test(id),
   plugins: [
     replace({
@@ -28,9 +26,13 @@ export default {
     commonjs({
       include: ['node_modules/**'],
     }),
+    nodeResolve({
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    }),
     babel({
       babelHelpers: 'runtime',
       babelrc: true,
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }),
     uglify({
       compress: {

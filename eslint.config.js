@@ -1,3 +1,4 @@
+const tseslint = require('typescript-eslint');
 const pluginReact = require('eslint-plugin-react');
 const pluginJsxA11y = require('eslint-plugin-jsx-a11y');
 const pluginReactHooks = require('eslint-plugin-react-hooks');
@@ -5,12 +6,16 @@ const globals = require('globals');
 
 module.exports = [
   {
-    ignores: ['dist/**', 'build/**', 'coverage/**', 'docs/**'],
+    ignores: ['dist/**', 'build/**', 'coverage/**', 'docs/.next/**', 'docs/export/**'],
   },
+  ...tseslint.configs.recommended.map((config) => ({
+    ...config,
+    files: ['**/*.{ts,tsx}'],
+  })),
   {
-    files: ['src/**/*.{js,jsx}', 'examples/**/*.{js,jsx}', 'test/**/*.{js,jsx}', '*.js'],
+    files: ['src/**/*.{js,jsx,ts,tsx}', 'examples/**/*.{js,jsx,ts,tsx}', 'test/**/*.{js,jsx,ts,tsx}', '*.{js,ts}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
         ecmaFeatures: {
@@ -26,7 +31,7 @@ module.exports = [
     },
     settings: {
       react: {
-        version: 'latest',
+        version: '19.2.5',
       },
     },
     plugins: {
@@ -38,8 +43,6 @@ module.exports = [
       ...pluginJsxA11y.configs.recommended.rules,
       'no-console': 'off',
       semi: 2,
-      'no-undef': 2,
-      'no-undef-init': 2,
       'no-tabs': 2,
       'react/self-closing-comp': 2,
       'react/no-typos': 2,
